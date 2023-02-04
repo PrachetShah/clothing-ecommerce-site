@@ -52,7 +52,6 @@ export const createUserDocumentFromAuth = async (userAuth) => {
     } catch (err) {
       console.log("error creating the user", err.message);
     }
-  } else {
-    return userDocRef;
   }
+  return userDocRef;
 };
