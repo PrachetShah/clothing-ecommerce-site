@@ -90,9 +90,7 @@ export const createUserDocumentFromAuth = async (
 
 //-----------------------------------------------------------------------------------
 
-/*
-    CREATE USER WITH EMAIL AND PASSWORD
-*/
+/* CREATE USER WITH EMAIL AND PASSWORD */
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
   if (!email || !password) return;
 
@@ -100,9 +98,7 @@ export const createAuthUserWithEmailAndPassword = async (email, password) => {
   return await createUserWithEmailAndPassword(auth, email, password);
 };
 
-/*
-    SIGN IN USER WITH EMAIL AND PASSWORD
-*/
+/* SIGN IN USER WITH EMAIL AND PASSWORD */
 export const signInAuthUserWithEmailAndPassword = async (email, password) => {
   if (!email || !password) return;
 
