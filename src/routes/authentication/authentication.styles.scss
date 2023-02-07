@@ -1,0 +1,14 @@
+.authentication-container {
+  display: flex;
+  justify-content: space-between;
+  width: 900px;
+  margin: 30px auto;
+}
+
+$breakpoint-tablet: 600px;
+@media (max-width: $breakpoint-tablet) {
+  .authentication-container {
+    flex-direction: column;
+    margin: auto;
+  }
+}

@@ -19,28 +19,22 @@ const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
 
-  /*
-    RESETTING FORM TO EMPTY
-  */
+  /* RESETTING FORM TO EMPTY */
   const resetForm = () => {
     setFormFields(defaultFormFields);
   };
 
-  /*
-  GOOGLE SIGN IN FUNCTION
-  */
+  /* GOOGLE SIGN IN FUNCTION */
   const signInWithGoogle = async () => {
     const { user } = await signInWithGooglePopup();
 
     const userDocRef = await createUserDocumentFromAuth(user);
   };
 
-  /*
-    HANDLE FORM SUBMISSION
-  */
+  /* HANDLE FORM SUBMISSION */
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(formFields);
+    // console.log(formFields);
     const { email, password } = formFields;
 
     try {
@@ -51,10 +45,12 @@ const SignInForm = () => {
       console.log(user);
       resetForm();
     } catch (err) {
-      if (err.code === "auth/email-already-in-use") {
-        alert("Cannot create user, email already in use");
+      if (err.code === "auth/wrong-password") {
+        alert("Incorrect Password for email");
+      } else if (err.code === "auth/user-not-found") {
+        alert("User Email not Found, Pls Sign Up");
       } else {
-        console.log("user creation encountered error: ", err);
+        console.log("User Sign In encountered error: ", err);
       }
     }
   };
@@ -90,7 +86,11 @@ const SignInForm = () => {
 
           <div className="buttons-container">
             <Button type="submit">Sign In</Button>
-            <Button buttonType={"google"} onClick={signInWithGoogle}>
+            <Button
+              type="button"
+              buttonType={"google"}
+              onClick={signInWithGoogle}
+            >
               Google Sign In
             </Button>
           </div>
