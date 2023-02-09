@@ -45,7 +45,7 @@ const SignInForm = () => {
         email,
         password
       );
-      console.log(user);
+      // console.log(user);
       setCurrentUser(user);
       resetForm();
     } catch (err) {
