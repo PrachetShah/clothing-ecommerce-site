@@ -37,7 +37,6 @@ const SignInForm = () => {
   /* HANDLE FORM SUBMISSION */
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // console.log(formFields);
     const { email, password } = formFields;
 
     try {
