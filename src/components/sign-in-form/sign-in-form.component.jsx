@@ -30,7 +30,6 @@ const SignInForm = () => {
   /* GOOGLE SIGN IN FUNCTION */
   const signInWithGoogle = async () => {
     const { user } = await signInWithGooglePopup();
-
     const userDocRef = await createUserDocumentFromAuth(user);
   };
 
@@ -45,7 +44,6 @@ const SignInForm = () => {
         password
       );
       // console.log(user);
-      setCurrentUser(user);
       resetForm();
     } catch (err) {
       if (err.code === "auth/wrong-password") {
