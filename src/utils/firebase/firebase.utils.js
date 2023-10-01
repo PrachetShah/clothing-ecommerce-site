@@ -70,7 +70,7 @@ export const createUserDocumentFromAuth = async (
     then create document in database since it does not have in db  
     if user data does not exist -> create/set the document with the data from userAuth in my collection
   
-    if user data exists -> return userDocRef
+    if user data exists() === true -> return userDocRef
   */
   if (!userSnapshot.exists()) {
     const { displayName, email } = userAuth;
