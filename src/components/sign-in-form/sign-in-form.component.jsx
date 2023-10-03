@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
+  auth,
   createUserDocumentFromAuth,
   signInAuthUserWithEmailAndPassword,
   signInWithGooglePopup,
 } from "../../utils/firebase/firebase.utils";
+
+import { getRedirectResult } from "firebase/auth";
 
 import FormInput from "../form-input/form-input.component";
 import "./sign-in-form.styles.scss";
