@@ -91,7 +91,6 @@ export const createUserDocumentFromAuth = async (
 /* CREATE USER WITH EMAIL AND PASSWORD */
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
   if (!email || !password) return;
-
   // RETURNS USER AUTH from FIREBASE
   return await createUserWithEmailAndPassword(auth, email, password);
 };
@@ -99,7 +98,6 @@ export const createAuthUserWithEmailAndPassword = async (email, password) => {
 /* SIGN IN USER WITH EMAIL AND PASSWORD */
 export const signInAuthUserWithEmailAndPassword = async (email, password) => {
   if (!email || !password) return;
-
   // RETURNS USER AUTH from FIREBASE
   return await signInWithEmailAndPassword(auth, email, password);
 };
