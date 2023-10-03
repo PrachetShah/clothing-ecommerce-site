@@ -55,21 +55,17 @@ export const createUserDocumentFromAuth = async (
   additionalInformation = {}
 ) => {
   if (!userAuth) return;
-
   // Getting DB collection on which we can apply the GET and SET methods
   const userDocRef = doc(db, "users", userAuth.uid);
 
   console.log(userDocRef);
 
   const userSnapshot = await getDoc(userDocRef);
-  console.log(userSnapshot);
+  // console.log(userSnapshot);
   // console.log(userSnapshot.exists());
 
   /* 
-    if userSnapshot.exists() === false
-    then create document in database since it does not have in db  
-    if user data does not exist -> create/set the document with the data from userAuth in my collection
-  
+    if userSnapshot.exists() === false ,then create document in database since it does not have in db  
     if user data exists() === true -> return userDocRef
   */
   if (!userSnapshot.exists()) {
