@@ -11,6 +11,7 @@ export const UserContext = createContext({
   setCurrentUser: () => null,
 });
 
+// this is the actual functional component
 export const UserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const value = { currentUser, setCurrentUser };
@@ -27,5 +28,6 @@ export const UserProvider = ({ children }) => {
     return unsubscribe;
   }, []);
 
+  // for every context that gets build for us, there is a provider
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };
