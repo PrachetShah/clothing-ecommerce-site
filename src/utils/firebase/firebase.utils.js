@@ -107,6 +107,10 @@ export const signOutUser = async () => {
   await signOut(auth);
 };
 
+/*
+  Helps reduce usage of Context for currentUser in every component by listening to Change in Auth State,
+  It is an Observer Pattern 
+*/
 export const onAuthStateChangedListener = (callback) => {
   onAuthStateChanged(auth, callback);
 };
