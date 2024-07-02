@@ -11,7 +11,7 @@ export const UserContext = createContext({
   setCurrentUser: () => null,
 });
 
-// this is the actual functional component
+// this is the actual functional component, which has to be added in "index.js"
 export const UserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const value = { currentUser, setCurrentUser };
