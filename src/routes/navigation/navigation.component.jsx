@@ -1,17 +1,21 @@
 import { Outlet, Link } from "react-router-dom";
+import { useContext } from "react";
+
 import { ReactComponent as CrwnLogo } from "../../assets/crown.svg";
 
 import CartIcon from "../../components/cart-icon/cart-icon.component";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";
 
-import { useContext } from "react";
 import { UserContext } from "../../contexts/user.context";
+import { CartToggleContext } from "../../contexts/cart-toggle.context";
+
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 
 import "./navigation.styles.scss";
 
 const Navigation = () => {
   const { currentUser } = useContext(UserContext);
+  const { isCartOpen } = useContext(CartToggleContext);
 
   return (
     <>
@@ -24,6 +28,7 @@ const Navigation = () => {
           <Link className="nav-link" to="/shop">
             SHOP
           </Link>
+          {/* if else for conditional rendering */}
           {currentUser ? (
             <span className="nav-link" onClick={signOutUser}>
               SIGN OUT
@@ -36,7 +41,9 @@ const Navigation = () => {
           <CartIcon />
         </div>
       </div>
-      <CartDropdown />
+      {/* wrap this component in short-circuit operator */}
+      {isCartOpen && <CartDropdown />}
+
       {/* All things below navigation bar specifid on route */}
       <Outlet />
     </>
